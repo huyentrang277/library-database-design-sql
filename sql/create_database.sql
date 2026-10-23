@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS members (
 CREATE TABLE IF NOT EXISTS borrowings (
     borrowing_id INT AUTO_INCREMENT PRIMARY KEY,
     member_id INT NOT NULL,
-    loan_date DATE NOT NULL DEFAULT (CURRENT_DATE),
+    borrowing_date DATE NOT NULL DEFAULT (CURRENT_DATE),
     due_date DATE NOT NULL,
     borrowing_status VARCHAR(20) NOT NULL DEFAULT 'borrowing',
 
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS borrowings (
         FOREIGN KEY (member_id) REFERENCES members(member_id),
 
     CONSTRAINT chk_borrowings_dates
-        CHECK (due_date >= loan_date),
+        CHECK (due_date >= borrowing_date),
 
     CONSTRAINT chk_borrowings_status
         CHECK (

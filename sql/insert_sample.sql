@@ -69,3 +69,50 @@ INSERT INTO book_authors (book_id, author_id) VALUES
 (8, 8),
 (9, 9),
 (10, 10);
+
+
+-- 6. Members
+
+INSERT INTO members
+    (full_name, email, phone, joined_date, status)
+VALUES
+('Nguyen Minh Anh', 'minhanh01@example.com', '0901000001', '2026-01-05', 'active'),
+('Tran Quoc Bao', 'quocbao02@example.com', '0901000002', '2026-01-10', 'active'),
+('Le Thu Ha', 'thuha03@example.com', '0901000003', '2026-01-15', 'active'),
+('Pham Duc Huy', 'duchuy04@example.com', '0901000004', '2026-02-01', 'active'),
+('Hoang Ngoc Linh', 'ngoclinh05@example.com', '0901000005', '2026-02-08', 'active'),
+('Do Thanh Nam', 'thanhnam06@example.com', '0901000006', '2026-02-15', 'active'),
+('Bui Phuong Thao', 'phuongthao07@example.com', '0901000007', '2026-03-01', 'active'),
+('Vu Tuan Kiet', 'tuankiet08@example.com', '0901000008', '2026-03-10', 'active'),
+('Dang Mai Chi', 'maichi09@example.com', '0901000009', '2026-03-20', 'inactive'),
+('Ngo Hoang Long', 'hoanglong10@example.com', '0901000010', '2026-04-01', 'active');
+
+-- 7. Borrowing records
+INSERT INTO borrowings
+    (member_id, borrowing_date, due_date, borrowing_status)
+VALUES
+(1, '2026-09-01', '2026-09-15', 'returned'),
+(2, '2026-09-05', '2026-09-19', 'returned'),
+(3, '2026-09-10', '2026-09-24', 'returned'),
+(4, '2026-09-15', '2026-09-29', 'returned'),
+(5, '2026-09-20', '2026-10-04', 'returned'),
+(6, '2026-10-01', '2026-10-15', 'overdue'),
+(7, '2026-10-05', '2026-10-19', 'overdue'),
+(8, '2026-10-10', '2026-10-24', 'borrowing'),
+(1, '2026-10-15', '2026-10-29', 'borrowing'),
+(2, '2026-10-20', '2026-11-03', 'borrowing');
+
+-- 8. Borrowing record details
+INSERT INTO borrowing_details
+    (borrowing_id, book_id, return_date, condition_note, fine_amount)
+VALUES
+(1, 1, '2026-09-10', 'Returned in good condition', 0),
+(2, 2, '2026-09-18', 'Returned in good condition', 0),
+(3, 3, '2026-09-22', 'Returned in good condition', 0),
+(4, 4, '2026-09-28', 'Returned in good condition', 0),
+(5, 5, '2026-10-02', 'Returned in good condition', 0),
+(6, 6, NULL, 'Not yet returned', 0),
+(7, 7, NULL, 'Not yet returned', 0),
+(8, 8, NULL, 'Currently borrowing', 0),
+(9, 9, NULL, 'Currently borrowing', 0),
+(10, 10, NULL, 'Currently borrowing', 0);
